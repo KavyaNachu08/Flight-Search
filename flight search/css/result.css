@@ -1,0 +1,248 @@
+/* MAIN CONTAINER */
+
+main {
+    background-color: var(--white);
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding-bottom: 20px;
+    width: 80%;
+}
+
+.travio-travel-details {
+    border-radius: 0;
+    border-bottom: 1px solid var(--black);
+    width: 100%;
+}
+
+section {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.result-content {
+    align-items: center;
+    display: flex;
+}
+
+.result-content div {
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.travio-change-flight {
+    background-color: var(--red);
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 18px;
+    padding:15px;
+    text-transform: capitalize;
+}
+
+.travio-change-flight:hover {
+    background-color: var(--marron);
+}
+
+.main-container {
+    display: flex;
+}
+
+aside {   
+    margin-top: 20px;
+    text-transform: capitalize;
+    width: 25%;
+}
+
+.travio-filters {
+    border: 1px solid var(--black);
+    margin: auto;
+    width: 90%;
+}
+
+.filter-options {
+    border-bottom: 1px solid var(--smokewhite);
+    color: var(--black);
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.accordian {
+    padding: 10px;
+}
+
+.accordian:not(:last-of-type) {
+    border-bottom: 1px solid var(--smokewhite);
+}
+
+.label {
+    color: var(--black);
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+article {
+    border: 1px solid black;
+    margin: 20px auto;
+    padding: 10px;
+    text-transform: capitalize;
+    width: 70%;
+}
+
+.travio-main-options {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.travio-body-sorting,
+.travio-body-sorting ul {
+    display: flex;
+}
+
+.travio-body-sorting a {
+    color: var(--black);
+    font-weight: normal;
+    margin: 0 10px;
+}
+
+.travio-body-sorting a:focus {
+    border-bottom: 2px solid var(--red);
+    color: var(--red);
+}
+
+.travio-ticket {
+    border: 1px solid var(--smokewhite);
+    cursor: pointer;
+    margin: 20px 10px;
+}
+
+.travio-ticket:hover,
+.travio-ticket:focus {
+    background-color: var(--whitesmoke);
+}
+
+.travio-company {
+    align-items: center;
+    display: flex;
+    padding: 5px 20px;
+    width: 150px;
+}
+
+.travio-company img {
+    max-width: 30%;
+}
+
+.travio-flight-ticket {
+    display: flex;
+    justify-content: space-between;
+}
+
+.travio-ticket-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.travio-from-time,
+.travio-to-time,
+.travio-duration,
+.travio-ticket-time i {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+.travio-price {
+    padding: 10px 30px;
+}
+
+.travio-price button {
+    background-color: var(--red);
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    font-size: 16px;
+    margin: 0 20px;
+    padding: 10px 15px;
+    text-transform: capitalize;
+
+}
+
+@media screen and (max-width:800px) {
+
+    /* MAIN CONTAINER */
+
+    .main-wrapper,
+    article {
+        margin: auto;
+        width: 90%;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside{
+        width:100%;
+    }
+
+    .travio-filters{
+        border: none;
+    }
+
+    .travio-filters ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+
+    .filter-options a {
+        padding: 10px;
+    }
+
+    .filter-options,
+    .accordian:not(:last-of-type) {
+        border-bottom: none;
+    }
+
+    .travio-main-options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .travio-flight-ticket {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .travio-body-sorting {
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    /* MAIN CONTAINER */
+
+    .travio-from-time,
+    .travio-to-time,
+    .travio-duration,
+    .travio-ticket-time i {
+        padding: 10px;
+    }
+}

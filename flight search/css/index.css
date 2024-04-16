@@ -1,0 +1,463 @@
+@import 'reset.css';
+
+:root {
+    --red: rgba(225, 61, 61, 0.945);
+    --white: rgb(255, 255, 255);
+    --marron: rgb(173, 19, 19);
+    --smokewhite: rgb(211, 206, 206);
+    --black: rgb(0, 0, 0);
+    --whitesmoke: rgb(241, 236, 236);
+}
+
+body {
+    font-family: 'Work Sans', 'Arial', 'Helvetica', 'sans-serif';
+    margin: auto;
+}
+
+
+/* HEADER CONTAINER */
+
+header {
+    background-color: var(--red);
+    color: var(--white);
+    position:sticky;
+    text-transform: capitalize;
+    top:0;
+    z-index:1;
+
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+}
+
+.travio-logo {
+    align-items: center;
+    display: flex;
+    width: 100px;
+}
+
+.travio-logo img {
+    margin: 0 5px;
+    width: 30%;
+}
+
+h1 a {
+    color: var(--white);
+    font-size: 24px;
+}
+
+.travio-header-list,
+.travio-login-list,
+.travio-header-all {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.travio-header-list li,
+.travio-login-list li {
+    padding: 15px;
+}
+
+.travio-header-list li a,
+.travio-login-list li a {
+    color: var(--smokewhite);
+    padding: 5px 0;
+}
+
+.travio-header-list li a:hover,
+.travio-login-list li a:hover,
+.travio-header_contents ul li a:focus,
+.travio-login-list li a:focus,
+.fa-user:focus,
+.fa-bars:focus {
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
+}
+
+/* MAIN CONTAINER */
+
+main {
+    background-color: var(--red);
+}
+
+article {
+    margin: auto;
+    padding: 50px 0 80px;
+    width: 90%;
+
+}
+
+.travio-travel h2 {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.travio-travel h3 {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 500px;
+    padding: 10px 0;
+}
+
+.travio-flight {
+    background-color: var(--marron);
+    border-radius: 5px;
+    display: flex;
+    height: 50px;
+    margin: 20px 0;
+    padding: 5px;
+    width: 100px;
+}
+
+.travio-flight img {
+    height: 40%;
+    margin: auto;
+}
+
+.travio-flight h3 {
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.travio-travel-details {
+    background-color: var(--white);
+    border-radius: 10px;
+    margin: auto;
+    width: 80%;
+}
+
+.d-none,
+.travio-header-all i {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-color{
+    color:var(--black);
+}
+
+.f-color{
+    background-color:var(--black);
+}
+
+
+
+.traveller-container {
+    display: flex;
+    margin: auto;
+    width: 95%;
+}
+
+#trip,
+.travellers {
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+#trip:hover,
+.travellers:hover {
+    background-color: var(--smokewhite);
+}
+
+.traveller-list {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    width: 300px;
+}
+
+.traveller {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.traveller:not(:last-of-type) {
+    border-bottom: 1px solid var(--smokewhite);
+}
+
+.adult-list,
+.child-list,
+.infant-list {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+
+.adult-count,
+.child-count,
+.infant-count,
+.adult-count span,
+.child-count span,
+.infant-count span {
+    padding: 10px;
+}
+
+.done {
+    background-color: var(--red);
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    margin: 20px;
+    padding: 10px;
+}
+
+.travio-input-details {
+    margin: auto;
+    width: 95%;
+}
+
+.travio-input-details form {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.travio-from,
+.travio-to,
+.travio-departure,
+.travio-return {
+    border: 1px solid var(--smokewhite);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.travio-from input,
+.travio-to input,
+.travio-departure input,
+.travio-return input {
+    border: none;
+    outline: none;
+    padding: 10px 20px 10px 0;
+}
+
+.travio-reset {
+    background-color: var(--red);
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+    padding: 10px;
+}
+
+.travio-search {
+    background-color: var(--red);
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    padding: 15px;
+    text-transform: capitalize;
+}
+
+.travio-search:hover {
+    background-color: var(--marron);
+    cursor: pointer;
+}
+
+section {
+    background-color: var(--white);
+    padding:20px;
+    text-transform: capitalize;
+}
+
+.travio-places{
+    margin:auto;
+    width:80%;
+} 
+
+.travio-places-explore {
+    font-size: 32px;
+    padding:20px;
+    text-align: center;
+}
+
+.travio-images{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.travio-image{
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    width:300px;
+}
+
+.travio-image img {
+    border-radius:20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.travio-image span{
+    font-size: 20px;
+    font-weight: bold;
+    padding:10px;
+}
+
+/* FOOTER CONTAINER */
+
+footer{
+    border-top:1px solid var(--smokewhite);
+}
+
+.footer-contents {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    padding: 30px 0;
+    text-transform: capitalize;
+    width: 90%;
+}
+
+.footer-travio-details span,
+.footer-account span,
+.footer-support span,
+.footer-follow span,
+.footer-our-app span,
+.footer-payment,
+.footer-customer-care {
+    font-size: 24px;
+}
+
+.footer-travio-details ul,
+.footer-account ul,
+.footer-support ul,
+.footer-follow ul,
+.footer-our-app ul,
+.footer-payment ul {
+    margin-top: 10px;
+}
+
+.footer-travio-details li a,
+.footer-account li a,
+.footer-support li a,
+.footer-follow li i,
+.footer-our-app li,
+.footer-payment li i {
+    color: var(--black);
+    margin-top: 10px;
+}
+
+.footer-social-network {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-follow ul,
+.footer-payment ul {
+    display: flex;
+}
+
+.footer-follow li {
+    font-size: 30px;
+    padding: 0 5px;
+}
+
+.footer-our-app ul {
+    width: 100px;
+}
+
+.footer-our-app img {
+    max-width: 100%;
+}
+
+.footer-payment li {
+    font-size: 40px;
+    padding: 0 10px;
+}
+
+.footer-customer-care div {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 100px;
+}
+
+.footer-customer-care img {
+    max-width: 80%;
+    padding: 20px;
+}
+
+.footer-copyrights span {
+    border-top: 1px solid var(--smokewhite);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+    text-transform: capitalize;
+    width: 90%;
+}
+
+@media screen and (max-width: 450px) {
+
+    /* HEADER CONTAINER */
+
+    .travio-header-list,
+    .travio-login-list{
+        display: none;
+    }
+
+    .header-container {
+        align-items: center;
+        display:flex;
+        padding: 10px 0;
+    }
+
+    .travio-header-all i{
+        display: block;
+        padding:20px;
+    }
+
+    /* MAIN CONTAINER */
+
+    .traveller-container,
+    .travio-input-details form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* FOOTER CONTAINER */
+
+    .footer-contents {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .footer-travio-details,
+    .footer-account,
+    .footer-support,
+    .footer-follow,
+    .footer-our-app,
+    .footer-payment,
+    .footer-customer-care {
+        padding:5px 0;
+    }
+    .d-flex{
+        display:flex;
+    }
+    
+}

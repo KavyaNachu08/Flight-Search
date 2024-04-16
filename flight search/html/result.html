@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/result.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER CONTAINER -->
+
+    <header>
+        <div class="header-container">
+            <div class="travio-logo">
+                <img src="../images/logos/logo.png">
+                <h1><a href="#">travio</a></h1>
+            </div>
+            <div class="travio-header-all">
+                <i class="fa-solid fa-bars d-none"></i>
+                <i class="fa-solid fa-user d-none"></i>
+                <nav class="travio-header_contents">
+                    <ul class="travio-header-list">
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">flight</a></li>
+                        <li><a href="#">hotel</a></li>
+                        <li><a href="#">promo</a></li>
+                        <li><a href="#">orders</a></li>
+                    </ul>
+                </nav>
+                <nav class="travio-header_login">
+                    <ul class="travio-login-list">
+                        <li><a href="#">help</a></li>
+                        <li><a href="#">download app</a></li>
+                        <li><a href="#">login</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+
+    <main>
+        <div class="main-wrapper">
+            <div class="travio-travel-details d-none">
+                <div class="traveller-container">
+                    <form>
+                        <label for="trip"></label>
+                        <select id="trip" name="trip">
+                            <option value="oneway">One way</option>
+                            <option value="round">Round trip</option>
+                        </select>
+                    </form>
+                    <div class="travio-traveller">
+                        <button class="travellers">
+                            <i class="fa-solid fa-user-group"></i>
+                            <span class="total-count">0</span>
+                            <span>Traveller</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <div class="traveller-list d-none">
+                            <div class="adult traveller">
+                                <div class="adult-list">
+                                    <span>adult</span>
+                                    <span>age 12+ years</span>
+                                </div>
+                                <div class="adult-count">
+                                    <i class="fa-solid fa-user-minus adult-dec"></i>
+                                    <span class="adult-count-value">0</span>
+                                    <i class="fa-solid fa-user-plus adult-inc"></i>
+                                </div>
+                            </div>
+                            <div class="child traveller">
+                                <div class="child-list">
+                                    <span>child</span>
+                                    <span>age 2-12 years</span>
+                                </div>
+                                <div class="child-count">
+                                    <i class="fa-solid fa-user-minus child-dec"></i>
+                                    <span class="child-count-value">0</span>
+                                    <i class="fa-solid fa-user-plus child-inc"></i>
+                                </div>
+                            </div>
+                            <div class="infant traveller">
+                                <div class="infant-list">
+                                    <span>infant</span>
+                                    <span>age &lt 2 years</span>
+                                </div>
+                                <div class="infant-count">
+                                    <i class="fa-solid fa-user-minus infant-dec"></i>
+                                    <span class="infant-count-value">0</span>
+                                    <i class="fa-solid fa-user-plus infant-inc"></i>
+                                </div>
+                            </div>
+                            <form>
+                                <input type="submit" value="Done" class="done">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="travio-input-details">
+                    <form>
+                        <div class="travio-from">
+                            <label for="from-list">from</label>
+                            <input type="text" name="from" id="from-list" placeholder="Choose Origin">
+                        </div>
+
+                        <i class="fa-solid fa-repeat travio-reset"></i>
+                        <div class="travio-to">
+                            <label for="to-list">to</label>
+                            <input type="text" name="to-list" id="to-list" placeholder="Choose Destination">
+                        </div>
+                        <div class="travio-departure">
+                            <label for="depart-date">Departure</label>
+
+                            <input type="date" id="depart-date" name="depart-date">
+                        </div>
+                        <div class="travio-return">
+                            <label for="return-date">Return</label>
+                            <input type="date" id="return-date" name="return-date" class="d-none">
+                        </div>
+                        <input type="button" class="travio-search" value="Search">
+                    </form>
+                </div>
+            </div>
+            <section>
+                <div class="result-content">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <div>
+                        <span id="fromValue"></span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span id="toValue"></span>
+                    </div>
+                </div>
+                <button class="travio-change-flight">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    <span>change flight</span>
+                </button>
+            </section>
+            <div class="main-container">
+                <aside>
+                    <nav class="travio-filters">
+                        <ul>
+                            <li class="filter-options"><a href="#">filters</a>
+                                <a href="#" id="clear" class="filter_options__clear">reset all</a>
+                            </li>
+                            <li class="accordian">
+                                <a href="#" class="label">stops
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <nav class="content-box d-none">
+                                    <form>
+                                        <ul class="stop-check">
+                                            <li class="stop-allCheck">
+                                                <input type="checkbox" id="check1" class="checkbox" name="Non-Stop">
+                                                <label class="check-stop" for="check1">Non-Stop</label>
+                                            </li>
+                                            <li class="stop-allCheck">
+                                                <input type="checkbox" id="check2" class="checkbox" name="One Stop">
+                                                <label class="check-stop" for="check2">One stop</label>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </nav>
+                            </li>
+                            <li class="accordian">
+                                <a href="#" class="label">price
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <div class="content-box d-none">
+                                    <form class="price-range">
+                                        <label for="amount">price range:</label>
+                                        <input type="text" id="amount">
+                                    </form>
+                                    <div id="slider"></div>
+                                </div>
+                            </li>
+                            <li class="accordian">
+                                <a href="#" class="label">airlines
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <nav class="content-box d-none">
+                                    <form>
+                                        <ul class="airline-check">
+                                            <li class="airline-allCheck">
+                                                <input type="checkbox" id="check1" class="checkbox" name="Air India">
+                                                <label class="check-airLine" for="check1">Air India</label>
+                                            </li>
+                                            <li class="airline-allCheck">
+                                                <input type="checkbox" id="check2" class="checkbox" name="Air Asia">
+                                                <label class="check-airLine" for="check2">Air Asia</label>
+                                            </li>
+                                            <li class="airline-allCheck">
+                                                <input type="checkbox" id="check1" class="checkbox" name="Indigo">
+                                                <label class="check-airLine" for="check1">Indigo</label>
+                                            </li>
+                                            <li class="airline-allCheck">
+                                                <input type="checkbox" id="check2" class="checkbox" name="KingFisher">
+                                                <label class="check-airLine" for="check2">KingFisher</label>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </nav>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <article>
+                    <div class="travio-main-options">
+                        <h3>departure flight to <span class="toValue1"></span> on <span class="fromDate"></span></h3>
+                        <nav class="travio-body-sorting">
+                            <span>Sort By</span>
+                            <ul>
+                                <li><a href="#" class="shortestDuration">Shortest Duration </a></li>
+                                <li><a href="#" class="price_low_high">Lowest Price</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="travio-container-body" id="containerbody"></div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER CONTAINER -->
+
+    <footer>
+        <div class="travio-footer">
+            <div class="footer-contents">
+                <nav class="footer-travio-details">
+                    <span>travio</span>
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li><a href="#">promo</a></li>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">travio blog</a></li>
+                        <li><a href="#">airline information</a></li>
+                        <li><a href="#">all flights</a></li>
+                        <li><a href="#">carrers</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-account">
+                    <span>account</span>
+                    <ul>
+                        <li><a href="#">sign up</a></li>
+                        <li><a href="#">forgot password</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-support">
+                    <span>support</span>
+                    <ul>
+                        <li><a href="#">travio guide</a></li>
+                        <li><a href="#">faq</a></li>
+                        <li><a href="#">how to book</a></li>
+                        <li><a href="#">help center</a></li>
+                        <li><a href="#">terms of use</a></li>
+                        <li><a href="#">terms & conditions</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-informatiom">
+                    <div class="footer-social-network">
+                        <nav class="footer-follow">
+                            <span>follow us</span>
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-our-app">
+                            <span>our app</span>
+                            <ul>
+                                <li><a href="#"><img src="../images/playstore.png"></a></li>
+                                <li><a href="#"><img src="../images/apple.png"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <nav class="footer-payment">
+                        <span>accepted payment methods</span>
+                        <ul>
+                            <li><a href="#"><i class="fa-brands fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-cc-paypal"></i></a></li></i>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer-customer-care">
+                    <span>customer care</span>
+                    <div>
+                        <a href="#"><img src="../images/customer-support.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyrights">
+                <span>copyright 2023 travio.com. all rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/result.js"></script>
+</body>
+
+</html>
